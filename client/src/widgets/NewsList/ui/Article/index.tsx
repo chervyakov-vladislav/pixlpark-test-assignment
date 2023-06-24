@@ -17,7 +17,7 @@ export const Article: React.FC<{ data: ArticleDataInterface }> = ({ data }) => {
       </div>
       <div className={style.preview}>
         <h2>{title}</h2>
-        <span>React more...</span>
+        <span>Read more...</span>
       </div>
     </article>
   );
