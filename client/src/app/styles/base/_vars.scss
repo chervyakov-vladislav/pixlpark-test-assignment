@@ -1,17 +1,19 @@
-$font-size: 16px;
-$font-color: #111827;
+:root {
+  //font
+  --font-size: 16px;
+  --font-color: #111827;
+  --font-regular: "Roboto";
 
-$font-regular: "Roboto";
+  //colors
+  --background-color: #fff;
+  --primary-action: #FF6600;
+  --gray: #767474;
+  --gray-smoky: #ABABAB;
+  --light-gray: #F3F4F6;
+  --frosted-glass-white: #FDFDFF;
 
-//colors
-
-$gray: #767474;
-$gray-smoky: #ABABAB;
-$light-gray: #F3F4F6;
-$frosted-glass-white: #FDFDFF;
-
-//z-index
-
-$z-index-10minus: -10;
-$z-index-10: 10;
-$z-index-20: 20;
+  //z-index
+  --z-index-10minus: -10;
+  --z-index-10: 10;
+  --z-index-20: 20;
+}

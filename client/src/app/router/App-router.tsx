@@ -2,19 +2,30 @@ import React, { Suspense } from 'react';
 import { Route, BrowserRouter, Switch } from 'react-router-dom';
 
 import { Layout } from '@/app/layouts';
+import { Spinner } from '@/shared';
 
-const Home = React.lazy(() => import('@/pages/Home/Home'));
-const Article = React.lazy(() => import('@/pages/Article/Article'));
-const NotFound = React.lazy(() => import('@/pages/NotFound/NotFound'));
+const importPageModule = (): Promise<{
+  Home: React.ComponentType;
+  Article: React.ComponentType;
+  NotFound: React.ComponentType;
+}> => import('@/pages');
+
+const Home = React.lazy(() => importPageModule().then((module) => ({ default: module.Home })));
+const Article = React.lazy(() =>
+  importPageModule().then((module) => ({ default: module.Article }))
+);
+const NotFound = React.lazy(() =>
+  importPageModule().then((module) => ({ default: module.NotFound }))
+);
 
 export const AppRouter = () => (
   <BrowserRouter>
     <Layout>
-      <Suspense fallback='Loading...'>
+      <Suspense fallback={<Spinner />}>
         <Switch>
-          <Route exact path='/' render={() => <Home />} />
-          <Route exact path='/article/:id' render={() => <Article />} />
-          <Route path='*' render={() => <NotFound />} />
+          <Route exact path='/' component={Home} />
+          <Route exact path='/article/:id' component={Article} />
+          <Route path='*' component={NotFound} />
         </Switch>
       </Suspense>
     </Layout>

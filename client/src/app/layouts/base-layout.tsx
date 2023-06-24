@@ -1,7 +1,7 @@
 import React from 'react';
 
 import style from './base-layout.module.scss';
-import { Header } from '@/shared/ui/Header';
+import { Header } from '@/shared';
 
 interface IProps {
   children: JSX.Element | JSX.Element[] | string;
