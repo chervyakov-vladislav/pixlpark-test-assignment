@@ -5,10 +5,23 @@ import { getNewsList } from '@/shared';
 class NewsStore {
   articles: ArticleDataInterface[] = [];
   isLoading = false;
+  pollingInterval: NodeJS.Timeout | null = null;
 
   constructor() {
     makeAutoObservable(this);
+    this.startPolling();
   }
+
+  startPolling = () => {
+    this.pollingInterval = setInterval(() => this.getNews(), 60_000);
+  };
+
+  stopPolling = () => {
+    if (this.pollingInterval) {
+      clearInterval(this.pollingInterval);
+      this.pollingInterval = null;
+    }
+  };
 
   getNews = async () => {
     try {
@@ -17,6 +30,8 @@ class NewsStore {
 
       runInAction(() => {
         this.articles = res;
+        this.stopPolling();
+        this.startPolling();
         this.isLoading = false;
       });
     } catch {

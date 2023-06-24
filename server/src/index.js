@@ -44,15 +44,15 @@ app.get("/news", async (_req, res) => {
 
 app.post("/news", async (req, res) => {
   try {
-    const { commentIds } = req.body;
-    const commentsPromises = commentIds.map((newsId) =>
+    const { articlesIds } = req.body;
+    const articlesPromises = articlesIds.map((newsId) =>
       fetch(`https://hacker-news.firebaseio.com/v0/item/${newsId}.json`).then(
         (response) => response.json()
       )
     );
-    const commentsResponses = await Promise.all(commentsPromises);
-    const comments = commentsResponses.map((data) => data);
-    res.json(comments);
+    const articlesResponses = await Promise.all(articlesPromises);
+    const articles = articlesResponses.map((data) => data);
+    res.json(articles);
   } catch (error) {
     console.error(error);
   }

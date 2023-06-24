@@ -2,15 +2,12 @@ import styles from './list.module.scss';
 import React from 'react';
 import { observer } from 'mobx-react-lite';
 
-import { Article, UpdateButton, newsStore } from '@/widgets/NewsList';
-import { Spinner } from '../../../../shared';
+import { Article, UpdateButton } from '@/widgets/NewsList';
+import { Spinner } from '@/shared';
+import { useList } from './use-list';
 
 export const NewsList: React.FC = observer(() => {
-  const { articles, getNews, isLoading } = newsStore;
-
-  React.useEffect(() => {
-    getNews();
-  }, [getNews]);
+  const { articles, isLoading } = useList();
 
   return (
     <div className={styles.container}>

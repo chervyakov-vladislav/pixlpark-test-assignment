@@ -4,10 +4,10 @@ import { ArticleDataInterface } from '@/widgets/NewsList';
 import { useArticleData } from './use-article';
 
 export const Article: React.FC<{ data: ArticleDataInterface }> = ({ data }) => {
-  const { handleArticleClick, formattedDate, score, by, title } = useArticleData(data);
+  const { handleArticleClick, formattedDate, score, by, title, id } = useArticleData(data);
 
   return (
-    <article onClick={handleArticleClick} className={style.container}>
+    <article onClick={() => handleArticleClick(id)} className={style.container}>
       <div className={style.metadata}>
         <div className={style.info}>
           <div className={style.author}>{by}</div>

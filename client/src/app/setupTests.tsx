@@ -4,12 +4,12 @@ import { expect } from 'vitest';
 import { Router } from 'react-router-dom';
 import { createMemoryHistory, MemoryHistory } from 'history';
 import React, { ReactElement } from 'react';
+import { StoreType } from './store';
 
 interface TestWrapperProps {
   children: React.ReactNode;
   history?: MemoryHistory;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  stores: any; // тип хранилища
+  stores: StoreType;
 }
 
 const TestWrapper = ({
