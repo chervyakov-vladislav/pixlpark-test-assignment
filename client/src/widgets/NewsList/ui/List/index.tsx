@@ -2,16 +2,16 @@ import styles from './list.module.scss';
 import React from 'react';
 import { observer } from 'mobx-react-lite';
 
-import { Article, UpdateButton } from '@/widgets/NewsList';
-import { Spinner } from '@/shared';
+import { Article } from '@/widgets/NewsList';
+import { Spinner, Button } from '@/shared';
 import { useList } from './use-list';
 
 export const NewsList: React.FC = observer(() => {
-  const { articles, isLoading } = useList();
+  const { articles, isLoading, handleClick } = useList();
 
   return (
     <div className={styles.container}>
-      <UpdateButton />
+      <Button onClick={handleClick}>Update</Button>
       {isLoading ? (
         <Spinner />
       ) : (

@@ -1,6 +1,7 @@
 import style from './article.module.scss';
 
 import { ArticleDataInterface } from '@/widgets/NewsList';
+import { ArticleMetaData } from '@/shared';
 import { useArticleData } from './use-article';
 
 export const Article: React.FC<{ data: ArticleDataInterface }> = ({ data }) => {
@@ -9,10 +10,7 @@ export const Article: React.FC<{ data: ArticleDataInterface }> = ({ data }) => {
   return (
     <article onClick={() => handleArticleClick(id)} className={style.container}>
       <div className={style.metadata}>
-        <div className={style.info}>
-          <div className={style.author}>{by}</div>
-          <div className={style.date}>{formattedDate}</div>
-        </div>
+        <ArticleMetaData by={by} formattedDate={formattedDate} />
         <div className={style.rating}>Rating: {score} votes</div>
       </div>
       <div className={style.preview}>

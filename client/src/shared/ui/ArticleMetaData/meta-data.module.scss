@@ -1,0 +1,19 @@
+.info {
+  margin-right: 0.5rem;
+  margin-left: 0.3rem;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1rem;
+}
+
+.author {
+  font-family: var(--font-medium);
+  font-size: 14px;
+  color: var(--primary-action);
+  margin-bottom: 2px;
+}
+
+.date {
+  font-size: 12px;
+  opacity: .5;  
+}

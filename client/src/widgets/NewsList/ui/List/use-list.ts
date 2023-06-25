@@ -12,8 +12,13 @@ export const useList = () => {
     }
   }, [getNews]);
 
+  const handleClick = React.useCallback(() => {
+    getNews();
+  }, [getNews]);
+
   return {
     articles,
     isLoading,
+    handleClick,
   };
 };

@@ -1,12 +1,12 @@
 export const formatTimestamp = (timestamp: number): string => {
   const date = new Date(timestamp * 1000);
   const options: Intl.DateTimeFormatOptions = {
-    hour: '2-digit',
-    minute: '2-digit',
+    hour: 'numeric',
+    minute: 'numeric',
     year: 'numeric',
-    month: 'long',
+    month: 'short',
     day: 'numeric',
   };
-  const formattedDate = date.toLocaleDateString('en-US', options);
+  const formattedDate = date.toLocaleString('en-US', options);
   return formattedDate;
 };

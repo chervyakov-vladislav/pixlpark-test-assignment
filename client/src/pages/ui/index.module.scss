@@ -9,3 +9,9 @@
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
+
+.not-found {
+  @extend .container;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,8 +1,10 @@
 import styles from './../index.module.scss';
-import { useParams } from 'react-router-dom';
+import { FullArticle } from '@/widgets';
 
 export const Article = () => {
-  const { id } = useParams<{ id: string }>();
-
-  return <section className={styles.container}>Article - {id}</section>;
+  return (
+    <section className={styles.container}>
+      <FullArticle />
+    </section>
+  );
 };
