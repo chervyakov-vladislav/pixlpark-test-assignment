@@ -3,7 +3,7 @@
 ### Запуск проекта локально
 ```
 git clone https://github.com/chervyakov-vladislav/pixlpark-test-assignment.git .
-cd server -> yarn -> yarn
+cd server -> yarn -> yarn start
 cd ../client -> yarn -> yarn start
 ```
 
