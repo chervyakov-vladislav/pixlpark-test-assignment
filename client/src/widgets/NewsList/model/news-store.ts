@@ -1,5 +1,5 @@
 import { makeAutoObservable, runInAction } from 'mobx';
-import { ArticleDataInterface } from './types';
+import { ArticleDataInterface } from '@/shared';
 import { getNewsList } from '@/shared';
 
 class NewsStore {

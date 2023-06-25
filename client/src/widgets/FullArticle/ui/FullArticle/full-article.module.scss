@@ -1,7 +1,5 @@
 .container {
-  border-top: 1px solid var(--secondary-color);
   padding: .7rem 0;
-  cursor: pointer;
 }
 
 .metadata {
@@ -10,25 +8,6 @@
   justify-content: space-between;
 }
 
-.info {
-  margin-right: 0.5rem;
-  margin-left: 0.3rem;
-  display: inline-block;
-  vertical-align: middle;
-  line-height: 1rem;
-}
-
-.author {
-  font-family: var(--font-medium);
-  font-size: 14px;
-  color: var(--primary-action);
-  margin-bottom: 2px;
-}
-
-.date {
-  font-size: 12px;
-  opacity: .5;  
-}
 
 .rating {
   margin-right: 0.3rem;
@@ -51,6 +30,7 @@
   flex-direction: column;
   margin-left: .3rem;
   margin-right: .3rem;
+  margin-bottom: 1rem;
 
     & h2 {
       font-size: 16px;

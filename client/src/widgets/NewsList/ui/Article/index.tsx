@@ -1,7 +1,6 @@
 import style from './article.module.scss';
 
-import { ArticleDataInterface } from '@/widgets/NewsList';
-import { ArticleMetaData } from '@/shared';
+import { ArticleMetaData, ArticleDataInterface } from '@/shared';
 import { useArticleData } from './use-article';
 
 export const Article: React.FC<{ data: ArticleDataInterface }> = ({ data }) => {

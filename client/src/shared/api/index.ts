@@ -1,4 +1,4 @@
-import { ArticleDataInterface } from '@/widgets';
+import { ArticleDataInterface } from '@/shared';
 
 const SERVER = 'http://localhost:8080/news';
 

@@ -1,8 +1,9 @@
 import React from 'react';
-import { newsStore } from '@/widgets';
+import { articleStore, newsStore } from '@/widgets';
 
 export class GlobalStore {
   news = newsStore;
+  articlePage = articleStore;
   comments = null;
 }
 

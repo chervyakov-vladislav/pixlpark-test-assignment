@@ -1,13 +1,36 @@
 import { useStores } from '@/app/store';
-import { useParams } from 'react-router-dom';
+import React from 'react';
+import { useParams, useHistory } from 'react-router-dom';
+import { ArticleDataInterface, formatTimestamp } from '@/shared';
 
 export const useFullArticle = () => {
-  const { id } = useParams<{ id: string }>();
+  const { id: idFromRouter } = useParams<{ id: string }>();
   const {
-    news: { articles },
+    articlePage: { articleData, fetchArticleData, isArticleLoading },
   } = useStores();
 
+  const data = articleData as ArticleDataInterface;
+
+  React.useLayoutEffect(() => {
+    if (!data) {
+      fetchArticleData(Number(idFromRouter));
+    }
+  }, [idFromRouter]);
+
+  let formattedDate = '';
+  if (data) {
+    formattedDate = formatTimestamp(data.time);
+  }
+
+  const history = useHistory();
+  const handleBack = React.useCallback(() => {
+    history.push('/');
+  }, [history]);
+
   return {
-    id,
+    ...data,
+    formattedDate,
+    handleBack,
+    isLoading: isArticleLoading,
   };
 };
