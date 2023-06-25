@@ -7,6 +7,16 @@ import { Comments } from '@/widgets';
 export const FullArticle = observer(() => {
   const { by, isLoading, formattedDate, title, url, handleBack } = useFullArticle();
 
+  if (!title && !isLoading)
+    return (
+      <article className={style['container-empty']}>
+        <Button as='a' onClick={handleBack}>
+          Go back
+        </Button>
+        <span>{`Article doesn\'t exist`}</span>
+      </article>
+    );
+
   return (
     <>
       <Button as='a' onClick={handleBack}>

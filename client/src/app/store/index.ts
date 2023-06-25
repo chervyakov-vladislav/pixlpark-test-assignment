@@ -1,10 +1,10 @@
 import React from 'react';
-import { articleStore, newsStore } from '@/widgets';
+import { articleStore, newsStore, commentsStore } from '@/widgets';
 
 export class GlobalStore {
   news = newsStore;
   articlePage = articleStore;
-  comments = null;
+  comments = commentsStore;
 }
 
 export const GlobalStoreContext = React.createContext<GlobalStore | null>(null);

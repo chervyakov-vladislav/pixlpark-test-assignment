@@ -1,5 +1,16 @@
 .container {
   padding: .7rem 0;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.container-empty {
+  @extend .container;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
 }
 
 .metadata {

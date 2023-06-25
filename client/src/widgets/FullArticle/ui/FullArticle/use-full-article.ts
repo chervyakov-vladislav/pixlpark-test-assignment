@@ -7,7 +7,12 @@ export const useFullArticle = () => {
   const { id: idFromRouter } = useParams<{ id: string }>();
   const {
     articlePage: { articleData, fetchArticleData, isArticleLoading },
+    comments: { setArticleDataForComments, clearCommentsData },
   } = useStores();
+
+  React.useEffect(() => {
+    return () => clearCommentsData();
+  }, [clearCommentsData]);
 
   const data = articleData as ArticleDataInterface;
 
@@ -19,6 +24,7 @@ export const useFullArticle = () => {
 
   let formattedDate = '';
   if (data) {
+    setArticleDataForComments(data);
     formattedDate = formatTimestamp(data.time);
   }
 

@@ -1,5 +1,18 @@
-import React from 'react';
+import { observer } from 'mobx-react-lite';
+import styles from './comments.module.scss';
 
-export const Comments = () => {
-  return <div>Comments</div>;
-};
+import { useComments } from './use-comments';
+import { List } from '@/widgets';
+import { Button } from '@/shared';
+
+export const Comments = observer(() => {
+  const { commentsCount, handleClick } = useComments();
+
+  return (
+    <div className={styles.container}>
+      <span>Total comments count: {commentsCount}</span>
+      <Button onClick={handleClick}>Update</Button>
+      <List />
+    </div>
+  );
+});
