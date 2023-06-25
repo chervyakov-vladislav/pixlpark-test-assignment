@@ -51,7 +51,9 @@ app.post("/news", async (req, res) => {
       )
     );
     const articlesResponses = await Promise.all(articlesPromises);
-    const articles = articlesResponses.map((data) => data);
+    const articles = articlesResponses
+      .map((data) => data)
+      .sort((a, b) => b.time - a.time);
     res.json(articles);
   } catch (error) {
     console.error(error);

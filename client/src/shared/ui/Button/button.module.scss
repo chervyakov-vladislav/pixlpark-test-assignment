@@ -10,6 +10,8 @@
   color: #fff;
   align-self: center;
   transition: .3s;
+  user-select: none;
+  cursor: pointer;
 
     &:hover {
       opacity: .7;

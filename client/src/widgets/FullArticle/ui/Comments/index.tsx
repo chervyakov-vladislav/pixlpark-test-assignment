@@ -10,7 +10,7 @@ export const Comments = observer(() => {
 
   return (
     <div className={styles.container}>
-      <span>Total comments count: {commentsCount}</span>
+      <span>Comments: {commentsCount}</span>
       <Button onClick={handleClick}>Update</Button>
       <List />
     </div>

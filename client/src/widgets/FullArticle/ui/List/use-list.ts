@@ -2,8 +2,8 @@ import { useStores } from '@/app/store';
 
 export const useList = () => {
   const {
-    comments: { isCommentsLoading },
+    comments: { isCommentsLoading, commentsData },
   } = useStores();
 
-  return { isCommentsLoading };
+  return { isCommentsLoading, commentsData };
 };

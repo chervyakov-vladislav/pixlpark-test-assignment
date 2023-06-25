@@ -3,7 +3,7 @@ import { ComponentProps, ElementType } from 'react';
 import style from './button.module.scss';
 
 type ButtonOwnProps<E extends ElementType = ElementType> = {
-  children: string | JSX.Element | JSX.Element[];
+  children: string | string[] | JSX.Element | JSX.Element[];
   classes?: string;
   as?: E;
 };

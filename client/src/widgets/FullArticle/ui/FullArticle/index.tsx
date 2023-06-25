@@ -31,7 +31,14 @@ export const FullArticle = observer(() => {
           </div>
           <div className={style.preview}>
             <h2>{title}</h2>
-            <span>Link: {url}</span>
+            {url ? (
+              <span>
+                Link:
+                <Button as='a' target='_blank' href={url} className={style.link}>
+                  {url}
+                </Button>
+              </span>
+            ) : null}
           </div>
           <Comments />
         </article>

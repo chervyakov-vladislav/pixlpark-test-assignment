@@ -16,8 +16,6 @@ export const useComments = () => {
     }
   }, []);
 
-  console.log(commentsData);
-
   let commentsCount = 0;
   if (articleData) {
     commentsCount = articleData.descendants;

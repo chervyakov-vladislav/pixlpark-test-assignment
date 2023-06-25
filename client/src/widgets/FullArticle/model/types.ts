@@ -6,4 +6,5 @@ export interface CommentInterface {
   text: string;
   time: number;
   type: string;
+  childCommments: CommentInterface[];
 }
