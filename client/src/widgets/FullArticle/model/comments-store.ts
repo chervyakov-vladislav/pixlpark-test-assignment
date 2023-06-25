@@ -1,4 +1,4 @@
-import { action, makeObservable, observable, runInAction } from 'mobx';
+import { makeAutoObservable, runInAction } from 'mobx';
 import { ArticleDataInterface, getArticlesArray } from '@/shared';
 import { CommentInterface } from './types';
 
@@ -8,15 +8,7 @@ class CommentsStore {
   commentsData: CommentInterface[] = [];
 
   constructor() {
-    makeObservable(this, {
-      articleData: observable,
-      isCommentsLoading: observable,
-      commentsData: observable,
-      setArticleDataForComments: action,
-      clearCommentsData: action,
-      updateArticleData: action,
-      fetchComments: action,
-    });
+    makeAutoObservable(this);
   }
 
   setArticleDataForComments = (data: ArticleDataInterface) => {

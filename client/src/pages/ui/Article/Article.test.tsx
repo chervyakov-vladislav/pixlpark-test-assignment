@@ -1,16 +1,16 @@
 import { render } from '@testing-library/react';
 import { describe, it } from 'vitest';
-import App from './App';
+import { Article } from './index';
 import TestWrapper from '@/app/setupTests';
 import { GlobalStore } from '@/app/store';
 
-describe('App', () => {
-  it('App render', () => {
+describe('Article Page', () => {
+  it('Article render', () => {
     const stores = new GlobalStore();
 
     const { container } = render(
       <TestWrapper stores={stores}>
-        <App />
+        <Article />
       </TestWrapper>
     );
     expect(container).toBeInTheDocument();

@@ -3,7 +3,7 @@ import { useStores } from '@/app/store';
 
 export const useComments = () => {
   const {
-    comments: { articleData, updateArticleData, commentsData, fetchComments },
+    comments: { articleData, updateArticleData, fetchComments },
   } = useStores();
 
   const handleClick = () => {
@@ -11,7 +11,7 @@ export const useComments = () => {
   };
 
   React.useEffect(() => {
-    if (!commentsData.length && articleData) {
+    if (articleData && articleData.kids && articleData.kids.length > 0) {
       fetchComments(articleData.kids);
     }
   }, []);

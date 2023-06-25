@@ -11,7 +11,9 @@ export const useFullArticle = () => {
   } = useStores();
 
   React.useEffect(() => {
-    return () => clearCommentsData();
+    return () => {
+      clearCommentsData();
+    };
   }, [clearCommentsData]);
 
   const data = articleData as ArticleDataInterface;

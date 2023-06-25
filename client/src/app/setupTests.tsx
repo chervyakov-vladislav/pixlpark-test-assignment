@@ -4,7 +4,7 @@ import { expect } from 'vitest';
 import { Router } from 'react-router-dom';
 import { createMemoryHistory, MemoryHistory } from 'history';
 import React, { ReactElement } from 'react';
-import { StoreType } from './store';
+import { GlobalStoreContext, StoreType } from './store';
 
 interface TestWrapperProps {
   children: React.ReactNode;
@@ -18,9 +18,11 @@ const TestWrapper = ({
   stores,
 }: TestWrapperProps): ReactElement => {
   return (
-    <Router history={history}>
-      {React.isValidElement(children) ? React.cloneElement(children, { ...stores }) : children}
-    </Router>
+    <GlobalStoreContext.Provider value={stores}>
+      <Router history={history}>
+        {React.isValidElement(children) ? React.cloneElement(children, { ...stores }) : children}
+      </Router>
+    </GlobalStoreContext.Provider>
   );
 };
 
