@@ -1,10 +1,18 @@
 import styles from './one-comments.module.scss';
-import { CommentInterface } from '@/widgets';
+import { ChildList, CommentInterface } from '@/widgets';
 import { useOneComment } from './use-one-comment';
-import { Button } from '@/shared';
+import { Button, Spinner } from '@/shared';
 
 export const OneComment: React.FC<CommentInterface> = (data) => {
-  const { formattedDate, by, htmlCode, childrens } = useOneComment(data);
+  const {
+    formattedDate,
+    by,
+    htmlCode,
+    children,
+    handleLoadChildren,
+    childrenLoading,
+    childernData,
+  } = useOneComment(data);
 
   return (
     <div className={styles.container}>
@@ -13,8 +21,13 @@ export const OneComment: React.FC<CommentInterface> = (data) => {
         <div className={styles.date}>{formattedDate}</div>
       </div>
       <div className={styles.text} dangerouslySetInnerHTML={{ __html: htmlCode }}></div>
-      {childrens.length ? (
-        <Button className={styles.load}>Show replies: {childrens.length.toString()}</Button>
+      {children.length ? (
+        <div>
+          <Button className={styles.load} onClick={() => handleLoadChildren(children)}>
+            Show replies: {children.length.toString()}
+          </Button>
+          {childrenLoading ? <Spinner /> : <ChildList data={childernData} />}
+        </div>
       ) : null}
     </div>
   );

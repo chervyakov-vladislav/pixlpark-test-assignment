@@ -6,14 +6,12 @@ class CommentsStore {
   articleData: ArticleDataInterface | null = null;
   isCommentsLoading = false;
   commentsData: CommentInterface[] = [];
-  childCommentsData: CommentInterface[] = [];
 
   constructor() {
     makeObservable(this, {
       articleData: observable,
       isCommentsLoading: observable,
       commentsData: observable,
-      childCommentsData: observable,
       setArticleDataForComments: action,
       clearCommentsData: action,
       updateArticleData: action,

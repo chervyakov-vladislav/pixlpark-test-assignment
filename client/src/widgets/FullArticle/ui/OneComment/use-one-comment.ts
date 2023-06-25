@@ -1,20 +1,28 @@
-import { useStores } from '@/app/store';
+import React from 'react';
 import { CommentInterface } from '@/widgets';
-import { formatTimestamp } from '@/shared';
+import { formatTimestamp, getArticlesArray } from '@/shared';
 
 export const useOneComment = (data: CommentInterface) => {
-  const {
-    comments: {},
-  } = useStores();
-
+  const [childrenLoading, setChildrenLoading] = React.useState(false);
+  const [childernData, setChildrenData] = React.useState<CommentInterface[]>([]);
   const formattedDate = formatTimestamp(data.time);
   const htmlCode = data.text;
-  const childrens = data.kids ?? [];
+  const children = data.kids ?? [];
+
+  const handleLoadChildren = async (childs: number[]) => {
+    setChildrenLoading(true);
+    const res = await getArticlesArray(childs);
+    setChildrenData(() => res);
+    setChildrenLoading(false);
+  };
 
   return {
     ...data,
     formattedDate,
     htmlCode,
-    childrens,
+    children,
+    handleLoadChildren,
+    childrenLoading,
+    childernData,
   };
 };
